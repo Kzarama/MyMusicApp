@@ -1,0 +1,12 @@
+$desktop: 600px
+
+@mixin desktop
+  @media (min-width:#{$desktop})
+    @content
+
+.nav-logo 
+  color: #ffffff
+  font-size: 6vw
+  text-decoration: none
+  @include desktop 
+    font-size: 3vw
