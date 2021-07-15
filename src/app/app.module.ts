@@ -10,6 +10,8 @@ import { PageNotFoundComponent } from './components/pages/page-not-found/page-no
 import { LogoComponent } from './components/atoms/logo/logo.component';
 import { NavbarComponent } from './components/molecules/navbar/navbar.component';
 import { HeaderComponent } from './components/organisms/header/header.component';
+import { LayoutComponent } from './components/pages/layout/layout.component';
+import { LoadingComponent } from './components/pages/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { HeaderComponent } from './components/organisms/header/header.component'
     LogoComponent,
     NavbarComponent,
     HeaderComponent,
+    LayoutComponent,
+    LoadingComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

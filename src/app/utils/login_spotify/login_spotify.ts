@@ -11,7 +11,7 @@ const generateRandomString = (length: number): string => {
   return text;
 };
 
-export const login = (): void => {
+export const login = async () => {
   const redirect_url = environment.SpotifyRedirectUrl;
   const client_id = environment.SpotifyClientId;
   const state = generateRandomString(16);
@@ -30,13 +30,13 @@ export const login = (): void => {
     `https://accounts.spotify.com/authorize?` +
     `client_id=${client_id}` +
     `&response_type=code` +
-    `&redirect_uri=${encodeURIComponent(redirect_url)}` +
+    `&redirect_uri=${encodeURIComponent(redirect_url || '')}` +
     `&scope=${scope}` +
     `&state=${state}` +
     `&show_dialog=false`;
 };
 
-export const getTokenFromURL = (): void => {
+export const getTokenFromURL = async () => {
   const urlQuery = window.location.search;
   const urlParams = new URLSearchParams(urlQuery);
   const codeParam = urlParams.get('code');
@@ -51,15 +51,11 @@ export const getAuthorizationToken = async () => {
       btoa(environment.SpotifyClientId + ':' + environment.SpotifyClientSecret)
   );
   myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
-  myHeaders.append(
-    'Cookie',
-    '__HOST-sp_fid=f2e2189b-1f37-45f8-afcf-f791e20c1d96; __Host-device_id=AQBu52PIMxNsplCvU7B5PhWycDehEIl0pYwyXNNwLRYx8nzsyDWX_ufbifEovHuT1-OQHzgrSenHYkrYKhPCy5U0FMlwqOyNJ5k'
-  );
 
   var urlencoded = new URLSearchParams();
   urlencoded.append('grant_type', 'authorization_code');
   urlencoded.append('code', localStorage.getItem('code') || '');
-  urlencoded.append('redirect_uri', 'http://localhost:4200/');
+  urlencoded.append('redirect_uri', environment.SpotifyRedirectUrl || '');
 
   var requestOptions = {
     method: 'POST',
@@ -67,7 +63,7 @@ export const getAuthorizationToken = async () => {
     body: urlencoded,
   };
 
-  fetch('https://accounts.spotify.com/api/token', requestOptions)
+  await fetch('https://accounts.spotify.com/api/token', requestOptions)
     .then((response) => response.json())
     .then((result) =>
       localStorage.setItem('access_token', result['access_token'])
@@ -76,21 +72,23 @@ export const getAuthorizationToken = async () => {
 };
 
 export const getUser = async () => {
-  const access_token = localStorage.getItem('access_token');
   var myHeaders = new Headers();
   myHeaders.append('Accept', 'application/json');
   myHeaders.append('Content-Type', 'application/json');
-  myHeaders.append('Authorization', 'Bearer ' + access_token);
+  myHeaders.append(
+    'Authorization',
+    'Bearer ' + localStorage.getItem('access_token')
+  );
 
   var requestOptions = {
     method: 'GET',
     headers: myHeaders,
   };
 
-  return fetch('https://api.spotify.com/v1/me', requestOptions)
+  await fetch('https://api.spotify.com/v1/me', requestOptions)
     .then((response) => response.json())
     .then((result) => {
-      return result;
+      localStorage.setItem('user', JSON.stringify(result));
     })
     .catch((error) => console.log('error', error));
 };

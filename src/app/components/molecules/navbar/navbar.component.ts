@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { user } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-navbar',
@@ -6,6 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.sass'],
 })
 export class NavbarComponent implements OnInit {
+  @Input() user: user = {
+    display_name: '',
+    external_urls: {},
+    followers: {},
+    href: '',
+    id: '',
+    images: [],
+    type: '',
+    uri: '',
+  };
+
   constructor() {}
 
   ngOnInit(): void {}

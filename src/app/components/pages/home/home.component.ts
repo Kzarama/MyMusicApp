@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { user } from 'src/app/interfaces/user';
 import {
   getAuthorizationToken,
   getTokenFromURL,
@@ -11,17 +12,9 @@ import {
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  user: any;
-  username: string = '';
-
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit() {}
 
-  async getUser() {
-    getTokenFromURL();
-    getAuthorizationToken();
-    this.user = await getUser();
-    this.username = this.user['display_name'];
-  }
+  async getUser() {}
 }
