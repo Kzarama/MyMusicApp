@@ -114,3 +114,25 @@ export const getFavorites = async () => {
     })
     .catch((error) => console.log('error', error));
 };
+
+export const getTop = async (type: string) => {
+  var myHeaders = new Headers();
+  myHeaders.append('Accept', 'application/json');
+  myHeaders.append('Content-Type', 'application/json');
+  myHeaders.append(
+    'Authorization',
+    'Bearer ' + localStorage.getItem('access_token')
+  );
+
+  var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+  };
+
+  await fetch('https://api.spotify.com/v1/me/top/' + type, requestOptions)
+    .then((response) => response.text())
+    .then((result) => {
+      localStorage.setItem('top', result);
+    })
+    .catch((error) => console.log('error', error));
+};
