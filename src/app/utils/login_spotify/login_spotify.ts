@@ -92,3 +92,25 @@ export const getUser = async () => {
     })
     .catch((error) => console.log('error', error));
 };
+
+export const getFavorites = async () => {
+  var myHeaders = new Headers();
+  myHeaders.append('Accept', 'application/json');
+  myHeaders.append('Content-Type', 'application/json');
+  myHeaders.append(
+    'Authorization',
+    'Bearer ' + localStorage.getItem('access_token')
+  );
+
+  var requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+  };
+
+  await fetch('https://api.spotify.com/v1/me/tracks', requestOptions)
+    .then((response) => response.text())
+    .then((result) => {
+      localStorage.setItem('favorites', JSON.stringify(result));
+    })
+    .catch((error) => console.log('error', error));
+};
