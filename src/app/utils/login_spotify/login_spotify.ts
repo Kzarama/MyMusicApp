@@ -110,7 +110,7 @@ export const getFavorites = async () => {
   await fetch('https://api.spotify.com/v1/me/tracks', requestOptions)
     .then((response) => response.text())
     .then((result) => {
-      localStorage.setItem('favorites', JSON.stringify(result));
+      localStorage.setItem('favorites', result);
     })
     .catch((error) => console.log('error', error));
 };
