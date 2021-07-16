@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { login } from 'src/app/utils/login_spotify/login_spotify';
+import { login } from 'src/app/services/spotifyApi';
 
 @Component({
   selector: 'app-login',

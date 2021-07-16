@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { favoriteTrack } from 'src/app/interfaces/favoriteTrack';
-import { getFavorites } from 'src/app/utils/login_spotify/login_spotify';
+import { getFavorites } from 'src/app/services/spotifyApi';
 
 @Component({
   selector: 'app-favorites',

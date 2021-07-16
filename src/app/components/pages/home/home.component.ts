@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { topTracks } from 'src/app/interfaces/topTrack';
-import { getTop } from 'src/app/utils/login_spotify/login_spotify';
+import { getTop } from 'src/app/services/spotifyApi';
 
 @Component({
   selector: 'app-home',
