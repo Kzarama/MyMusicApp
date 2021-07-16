@@ -1,0 +1,5 @@
+<div *ngFor="let favorite of favorites.items">
+  <h1>{{ favorite.track.name }}</h1>
+  <h2 *ngFor="let artist of favorite.track.artists">{{ artist.name }}</h2>
+  <img src="{{ favorite.track.album.images[0].url }}" alt="" />
+</div>

@@ -12,6 +12,7 @@ import { NavbarComponent } from './components/molecules/navbar/navbar.component'
 import { HeaderComponent } from './components/organisms/header/header.component';
 import { LayoutComponent } from './components/pages/layout/layout.component';
 import { LoadingComponent } from './components/pages/loading/loading.component';
+import { FavoritesComponent } from './components/pages/favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { LoadingComponent } from './components/pages/loading/loading.component';
     HeaderComponent,
     LayoutComponent,
     LoadingComponent,
+    FavoritesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FavoritesComponent } from './components/pages/favorites/favorites.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { LayoutComponent } from './components/pages/layout/layout.component';
 import { LoadingComponent } from './components/pages/loading/loading.component';
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path: 'home',
         component: HomeComponent,
+      },
+      {
+        path: 'favorites',
+        component: FavoritesComponent,
       },
     ],
   },
