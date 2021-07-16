@@ -3,6 +3,7 @@ import { user } from 'src/app/interfaces/user';
 import {
   getAuthorizationToken,
   getTokenFromURL,
+  getTop,
   getUser,
 } from 'src/app/utils/login_spotify/login_spotify';
 
@@ -12,9 +13,25 @@ import {
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  topTracks: any;
+  currentPage: number = 1;
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    getTop('https://api.spotify.com/v1/me/top/tracks');
+    this.topTracks = JSON.parse(localStorage.getItem('top') || '');
+  }
 
-  async getUser() {}
+  async previousPage() {
+    await getTop(this.topTracks['previous']);
+    this.topTracks = JSON.parse(localStorage.getItem('top') || '');
+    this.currentPage--;
+  }
+
+  async nextPage() {
+    await getTop(this.topTracks['next']);
+    this.topTracks = JSON.parse(localStorage.getItem('top') || '');
+    this.currentPage++;
+  }
 }
