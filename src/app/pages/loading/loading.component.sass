@@ -1,0 +1,117 @@
+$desktop: 600px
+
+@mixin desktop
+  @media (min-width:#{$desktop})
+    @content
+
+.spinner__container
+
+  .logo__img
+    width: 130px
+    position: absolute
+    top: 37%
+    left: 50%
+    transform: translate(-50%, -50%)
+    @include desktop
+      width: 200px
+      top: 38%
+
+  span
+    color: #ffffff
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #00ccff, 0 0 30px #00ccff, 0 0 40px #00ccff, 0 0 55px #00ccff, 0 0 75px #00ccff
+    font-size: 40px
+
+    position: absolute
+    top: 35%
+    left: 50%
+    transform: translate(-45%, -50%)
+    @include desktop
+      font-size: 50px
+
+  .lds-spinner
+    color: official
+    display: inline-block
+    position: absolute
+    width: 80px
+    height: 80px
+
+    position: absolute
+    top: 65%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+    div
+      transform-origin: 40px 40px
+      animation: lds-spinner 1.2s linear infinite
+
+      &:after
+        content: " "
+        display: block
+        position: absolute
+        top: -30px
+        left: 37px
+        width: 10px
+        height: 30px
+        border-radius: 20%
+        background-color: #00ccff
+
+        @include desktop
+          top: -30px
+          left: 37px
+          width: 10px
+          height: 30px
+
+      &:nth-child(1)
+        transform: rotate(0deg)
+        animation-delay: -1.1s
+
+      &:nth-child(2)
+        transform: rotate(30deg)
+        animation-delay: -1s
+
+      &:nth-child(3)
+        transform: rotate(60deg)
+        animation-delay: -0.9s
+
+      &:nth-child(4)
+        transform: rotate(90deg)
+        animation-delay: -0.8s
+
+      &:nth-child(5)
+        transform: rotate(120deg)
+        animation-delay: -0.7s
+
+      &:nth-child(6)
+        transform: rotate(150deg)
+        animation-delay: -0.6s
+
+      &:nth-child(7)
+        transform: rotate(180deg)
+        animation-delay: -0.5s
+
+      &:nth-child(8)
+        transform: rotate(210deg)
+        animation-delay: -0.4s
+
+      &:nth-child(9)
+        transform: rotate(240deg)
+        animation-delay: -0.3s
+
+      &:nth-child(10)
+        transform: rotate(270deg)
+        animation-delay: -0.2s
+
+      &:nth-child(11)
+        transform: rotate(300deg)
+        animation-delay: -0.1s
+
+      &:nth-child(12)
+        transform: rotate(330deg)
+        animation-delay: 0s
+
+  @keyframes lds-spinner
+    0%
+      opacity: 1
+
+    100%
+      opacity: 0

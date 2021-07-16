@@ -3,16 +3,15 @@
   <div class="links__container">
     <ul class="nav-menu">
       <li class="nav-item">
-        <a routerLink="/favorites" class="nav-link">Favorites</a>
+        <app-user-info [user]="user"></app-user-info>
       </li>
       <li class="nav-item">
-        <a routerLink="/home" class="nav-link">
-          <img src="{{ user.images[0].url }}" alt="" />
-          {{ user.display_name }}</a
-        >
+        <a routerLink="/favorites" class="nav-link">&#9825;Favorites</a>
       </li>
       <li class="nav-item">
-        <a routerLink="/login" class="nav-link">Logout</a>
+        <a routerLink="/login" class="nav-link"
+          >&#10153;Signout<i class="fas fa-sign-out-alt"></i
+        ></a>
       </li>
     </ul>
   </div>

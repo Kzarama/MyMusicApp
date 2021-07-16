@@ -28,6 +28,6 @@ export class LoadingComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('user') || '');
     setTimeout(() => {
       this.router.navigateByUrl('/home');
-    }, 1000);
+    }, 1500);
   }
 }

@@ -5,7 +5,7 @@ import { login } from 'src/app/services/spotifyApi';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['./login.component.sass'],
 })
 export class LoginComponent {
   constructor(private router: Router) {}

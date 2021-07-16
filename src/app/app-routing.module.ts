@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FavoritesComponent } from './components/pages/favorites/favorites.component';
-import { HomeComponent } from './components/pages/home/home.component';
-import { LayoutComponent } from './components/pages/layout/layout.component';
-import { LoadingComponent } from './components/pages/loading/loading.component';
-import { LoginComponent } from './components/pages/login/login.component';
-import { PageNotFoundComponent } from './components/pages/page-not-found/page-not-found.component';
+import { FavoritesComponent } from './pages/favorites/favorites.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LayoutComponent } from './pages/layout/layout.component';
+import { LoadingComponent } from './pages/loading/loading.component';
+import { LoginComponent } from './pages/login/login.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {

@@ -4,9 +4,14 @@ $desktop: 600px
   @media (min-width:#{$desktop})
     @content
 
-.nav-logo 
+.a-logo__link
   color: #ffffff
   font-size: 6vw
   text-decoration: none
-  @include desktop 
+  &:hover
+    color: #00ccff
+  .a-logo__img
+    width: 6%
+    margin-right: 5px
+  @include desktop
     font-size: 3vw

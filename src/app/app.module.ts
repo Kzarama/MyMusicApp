@@ -3,16 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/pages/login/login.component';
-import { HomeComponent } from './components/pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
 import { FormsModule } from '@angular/forms';
-import { PageNotFoundComponent } from './components/pages/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { LogoComponent } from './components/atoms/logo/logo.component';
-import { NavbarComponent } from './components/molecules/navbar/navbar.component';
-import { HeaderComponent } from './components/organisms/header/header.component';
-import { LayoutComponent } from './components/pages/layout/layout.component';
-import { LoadingComponent } from './components/pages/loading/loading.component';
-import { FavoritesComponent } from './components/pages/favorites/favorites.component';
+import { NavbarListComponent } from './components/molecules/navbarList/navbarList.component';
+import { NavbarComponent } from './components/organisms/navbar/navbar.component';
+import { LayoutComponent } from './pages/layout/layout.component';
+import { LoadingComponent } from './pages/loading/loading.component';
+import { FavoritesComponent } from './pages/favorites/favorites.component';
+import { UserInfoComponent } from './components/atoms/user-info/user-info.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +22,12 @@ import { FavoritesComponent } from './components/pages/favorites/favorites.compo
     HomeComponent,
     PageNotFoundComponent,
     LogoComponent,
+    NavbarListComponent,
     NavbarComponent,
-    HeaderComponent,
     LayoutComponent,
     LoadingComponent,
     FavoritesComponent,
+    UserInfoComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
