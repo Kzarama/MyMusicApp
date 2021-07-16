@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { user } from 'src/app/interfaces/user';
-import {
-  getAuthorizationToken,
-  getTokenFromURL,
-  getTop,
-  getUser,
-} from 'src/app/utils/login_spotify/login_spotify';
+import { topTracks } from 'src/app/interfaces/topTrack';
+import { getTop } from 'src/app/utils/login_spotify/login_spotify';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +8,17 @@ import {
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  topTracks: any;
+  topTracks: topTracks = {
+    items: [
+      {
+        name: '',
+        album: { images: [{ url: '' }] },
+        artists: [{ name: '' }],
+      },
+    ],
+    next: '',
+    previous: '',
+  };
   currentPage: number = 1;
 
   constructor() {}

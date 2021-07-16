@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { favorites } from 'src/app/interfaces/favorites';
+import { favoriteTrack } from 'src/app/interfaces/favoriteTrack';
 import { getFavorites } from 'src/app/utils/login_spotify/login_spotify';
 
 @Component({
@@ -8,22 +8,38 @@ import { getFavorites } from 'src/app/utils/login_spotify/login_spotify';
   styleUrls: ['./favorites.component.sass'],
 })
 export class FavoritesComponent implements OnInit {
-  // favorites: favorites = {
-  //   href: '',
-  //   items: [],
-  //   limit: 0,
-  //   next: '',
-  //   offset: 0,
-  //   previous: '',
-  //   total: 0,
-  // };
-  favorites: any;
+  favorites: favoriteTrack = {
+    items: [
+      {
+        track: {
+          name: '',
+          album: { images: [{ url: '' }] },
+          artists: [{ name: '' }],
+        },
+      },
+    ],
+    next: '',
+    previous: '',
+  };
+  currentPage: number = 1;
 
   constructor() {}
 
   ngOnInit(): void {
-    getFavorites();
+    getFavorites('https://api.spotify.com/v1/me/tracks');
     this.favorites = JSON.parse(localStorage.getItem('favorites') || '');
     console.log(this.favorites);
+  }
+
+  async previousPage() {
+    await getFavorites(this.favorites['previous']);
+    this.favorites = JSON.parse(localStorage.getItem('top') || '');
+    this.currentPage--;
+  }
+
+  async nextPage() {
+    await getFavorites(this.favorites['next']);
+    this.favorites = JSON.parse(localStorage.getItem('top') || '');
+    this.currentPage++;
   }
 }
