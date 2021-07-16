@@ -134,7 +134,7 @@ export const getUser = async () => {
     });
 };
 
-export const getFavorites = async () => {
+export const getFavorites = async (url: string) => {
   var myHeaders = new Headers();
   myHeaders.append('Accept', 'application/json');
   myHeaders.append('Content-Type', 'application/json');
@@ -148,7 +148,7 @@ export const getFavorites = async () => {
     headers: myHeaders,
   };
 
-  await fetch('https://api.spotify.com/v1/me/tracks', requestOptions)
+  await fetch(url, requestOptions)
     .then((response) => response.text())
     .then((result) => {
       localStorage.setItem('favorites', result);
@@ -158,7 +158,7 @@ export const getFavorites = async () => {
         error.status === 401 &&
         error.message === 'The access token expired'
       ) {
-        refresh_token(getFavorites());
+        refresh_token(getFavorites(url));
       } else {
         console.log('error', error);
       }
