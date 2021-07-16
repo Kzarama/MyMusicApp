@@ -65,9 +65,41 @@ export const getAuthorizationToken = async () => {
 
   await fetch('https://accounts.spotify.com/api/token', requestOptions)
     .then((response) => response.json())
-    .then((result) =>
-      localStorage.setItem('access_token', result['access_token'])
-    )
+    .then((result) => {
+      localStorage.setItem('access_token', result['access_token']);
+      localStorage.setItem('refresh_token', result['refresh_token']);
+    })
+    .catch((error) => console.log('error', error));
+};
+
+export const refresh_token = async (parent_function: any) => {
+  var myHeaders = new Headers();
+  myHeaders.append(
+    'Authorization',
+    'Basic ' +
+      btoa(environment.SpotifyClientId + ':' + environment.SpotifyClientSecret)
+  );
+  myHeaders.append('Content-Type', 'application/x-www-form-urlencoded');
+
+  var urlencoded = new URLSearchParams();
+  urlencoded.append('grant_type', 'refresh_token');
+  urlencoded.append(
+    'refresh_token',
+    localStorage.getItem('refresh_token') || ''
+  );
+
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: urlencoded,
+  };
+
+  await fetch('https://accounts.spotify.com/api/token', requestOptions)
+    .then((response) => response.json())
+    .then((result) => {
+      localStorage.setItem('access_token', result['access_token']);
+      parent_function();
+    })
     .catch((error) => console.log('error', error));
 };
 
@@ -90,7 +122,16 @@ export const getUser = async () => {
     .then((result) => {
       localStorage.setItem('user', JSON.stringify(result));
     })
-    .catch((error) => console.log('error', error));
+    .catch((error) => {
+      if (
+        error.status === 401 &&
+        error.message === 'The access token expired'
+      ) {
+        refresh_token(getUser());
+      } else {
+        console.log('error', error);
+      }
+    });
 };
 
 export const getFavorites = async () => {
@@ -112,10 +153,19 @@ export const getFavorites = async () => {
     .then((result) => {
       localStorage.setItem('favorites', result);
     })
-    .catch((error) => console.log('error', error));
+    .catch((error) => {
+      if (
+        error.status === 401 &&
+        error.message === 'The access token expired'
+      ) {
+        refresh_token(getFavorites());
+      } else {
+        console.log('error', error);
+      }
+    });
 };
 
-export const getTop = async (type: string) => {
+export const getTop = async (url: string) => {
   var myHeaders = new Headers();
   myHeaders.append('Accept', 'application/json');
   myHeaders.append('Content-Type', 'application/json');
@@ -129,10 +179,19 @@ export const getTop = async (type: string) => {
     headers: myHeaders,
   };
 
-  await fetch('https://api.spotify.com/v1/me/top/' + type, requestOptions)
+  await fetch(url, requestOptions)
     .then((response) => response.text())
     .then((result) => {
       localStorage.setItem('top', result);
     })
-    .catch((error) => console.log('error', error));
+    .catch((error) => {
+      if (
+        error.status === 401 &&
+        error.message === 'The access token expired'
+      ) {
+        refresh_token(getTop(url));
+      } else {
+        console.log('error', error);
+      }
+    });
 };
