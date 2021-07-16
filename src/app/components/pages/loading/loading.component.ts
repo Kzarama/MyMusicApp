@@ -15,13 +15,8 @@ import {
 export class LoadingComponent implements OnInit {
   user: user = {
     display_name: '',
-    external_urls: {},
-    followers: {},
-    href: '',
     id: '',
-    images: [],
-    type: '',
-    uri: '',
+    images: [{ url: '' }],
   };
 
   constructor(private router: Router) {}
@@ -33,6 +28,6 @@ export class LoadingComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('user') || '');
     setTimeout(() => {
       this.router.navigateByUrl('/home');
-    }, 2000);
+    }, 1000);
   }
 }

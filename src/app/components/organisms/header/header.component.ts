@@ -9,13 +9,8 @@ import { user } from 'src/app/interfaces/user';
 export class HeaderComponent implements OnInit {
   @Input() user: user = {
     display_name: '',
-    external_urls: {},
-    followers: {},
-    href: '',
     id: '',
     images: [],
-    type: '',
-    uri: '',
   };
 
   constructor() {}
