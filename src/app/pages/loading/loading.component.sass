@@ -1,8 +1,5 @@
-$desktop: 600px
-
-@mixin desktop
-  @media (min-width:#{$desktop})
-    @content
+@import ../../../styles/variables
+@import ../../../styles/mixins
 
 .spinner__container
 
@@ -18,7 +15,7 @@ $desktop: 600px
 
   span
     color: #ffffff
-    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #00ccff, 0 0 30px #00ccff, 0 0 40px #00ccff, 0 0 55px #00ccff, 0 0 75px #00ccff
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px $blue_color, 0 0 30px $blue_color, 0 0 40px $blue_color, 0 0 55px $blue_color, 0 0 75px $blue_color
     font-size: 40px
 
     position: absolute
@@ -53,7 +50,7 @@ $desktop: 600px
         width: 10px
         height: 30px
         border-radius: 20%
-        background-color: #00ccff
+        background-color: $blue_color
 
         @include desktop
           top: -30px

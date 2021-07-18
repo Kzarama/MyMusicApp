@@ -1,15 +1,12 @@
-$desktop: 600px
-
-@mixin desktop
-  @media (min-width:#{$desktop})
-    @content
+@import ../../../../styles/variables
+@import ../../../../styles/mixins
 
 .a-logo__link
-  color: #ffffff
+  color: white
   font-size: 6vw
   text-decoration: none
   &:hover
-    color: #00ccff
+    color: $blue_color
   .a-logo__img
     width: 6%
     margin-right: 5px

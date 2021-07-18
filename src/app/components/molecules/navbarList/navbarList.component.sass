@@ -1,8 +1,5 @@
-$desktop: 600px
-
-@mixin desktop
-  @media (min-width:#{$desktop})
-    @content
+@import ../../../../styles/mixins
+@import ../../../../styles/variables
 
 .navbar
   padding: 2%
@@ -13,8 +10,8 @@ $desktop: 600px
     width: 80%
     text-align: center
     border-radius: 10px
-    background-color: rgba(0, 0, 0, 0.5)
-    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.5)
+    background-color: $transparent_navbar
+    box-shadow: 0 10px 27px $transparent_navbar
     flex-direction: column
     position: fixed
     left: -100%
@@ -30,12 +27,12 @@ $desktop: 600px
         color: #ffffff
         text-decoration: none
         &:hover
-          color: #00ccff
+          color: $blue_color
   .hamburger
     display: block
     cursor: pointer
     &:hover .bar
-      background-color: #00ccff
+      background-color: $blue_color
     &.active .bar:nth-child(1)
       transform: translateY(8px) rotate(45deg)
     &.active .bar:nth-child(2)

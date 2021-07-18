@@ -1,8 +1,5 @@
-$desktop: 600px
-
-@mixin desktop
-  @media (min-width:#{$desktop})
-    @content
+@import ../../../../styles/variables
+@import ../../../../styles/mixins
 
 .a-user__container
   display: flex
@@ -16,7 +13,8 @@ $desktop: 600px
     width: 50px
     border-radius: 50%
   &:hover
-    color: #00ccff
+    color: $blue_color
+
 @include desktop
   .a-user__container
     align-items: center
