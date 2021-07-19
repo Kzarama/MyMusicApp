@@ -1,16 +1,13 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
+import * as dotenv from 'dotenv';
+
+// dotenv.config({ path: '../../.env' });
 
 export const environment = {
-  production: false
+  production: false,
+  SpotifyClientId: 'ddc11f4efc614417a7c9a21a18108ddd',
+  SpotifyClientSecret: '006ed44f714b4678b1ddad99ab1379e5',
+  SpotifyRedirectUrl: 'http://localhost:4200/loading/',
+  // SpotifyClientId: process.env.SPOTIFY_CLIENT_ID,
+  // SpotifyClientSecret: process.env.SPOTIFY_CLIENT_SECRET,
+  // SpotifyRedirectUrl: process.env.SPOTIFY_REDIRECT_URL,
 };
-
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.

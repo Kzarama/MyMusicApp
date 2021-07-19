@@ -14,6 +14,11 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { LoadingComponent } from './pages/loading/loading.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { UserInfoComponent } from './components/atoms/user-info/user-info.component';
+import { TitleTrackComponent } from './components/atoms/title-track/title-track.component';
+import { TrackComponent } from './components/molecules/track/track.component';
+import { HomeTemplateComponent } from './templates/home-template/home-template.component';
+import { TracksComponent } from './components/organisms/tracks/tracks.component';
+import { ButtonComponent } from './components/atoms/button/button.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +33,11 @@ import { UserInfoComponent } from './components/atoms/user-info/user-info.compon
     LoadingComponent,
     FavoritesComponent,
     UserInfoComponent,
+    TitleTrackComponent,
+    TrackComponent,
+    HomeTemplateComponent,
+    TracksComponent,
+    ButtonComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
