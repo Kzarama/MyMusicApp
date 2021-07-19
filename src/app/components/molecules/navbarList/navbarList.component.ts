@@ -18,8 +18,8 @@ export class NavbarListComponent implements OnInit {
   ngOnInit(): void {}
 
   mobileMenu(): void {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
+    const hamburger = document.querySelector('.m-hamburger__container');
+    const navMenu = document.querySelector('.m-nav_menu__list');
     if (hamburger && navMenu) {
       hamburger.classList.toggle('active');
       navMenu.classList.toggle('active');

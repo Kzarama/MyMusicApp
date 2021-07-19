@@ -1,8 +1,4 @@
-<div *ngFor="let track of topTracks.items">
-  <h1>{{ track.name }}</h1>
-  <h2 *ngFor="let artist of track.artists">{{ artist.name }}</h2>
-  <img src="{{ track.album.images[1].url }}" alt="" />
-</div>
+<app-home-template [tracks]="topTracks.items"></app-home-template>
 
 <button (click)="previousPage()" [disabled]="!topTracks.previous">
   Previous

@@ -1,12 +1,12 @@
 @import ../../../../styles/mixins
 @import ../../../../styles/variables
 
-.navbar
+.m-navbar__container
   padding: 2%
   display: flex
   align-items: center
   justify-content: space-between
-  .nav-menu
+  .m-nav_menu__list
     width: 80%
     text-align: center
     border-radius: 10px
@@ -19,27 +19,27 @@
     transition: 0.3s
     &.active
       left: 10%
-    .nav-item
+    .m-nav_menu__item
       margin: 10%
       list-style: none
-      .nav-link
+      .m-nav_link
         font-size: 4vw
         color: #ffffff
         text-decoration: none
         &:hover
-          color: $blue_color
-  .hamburger
+          color: $blue_def
+  .m-hamburger__container
     display: block
     cursor: pointer
-    &:hover .bar
-      background-color: $blue_color
-    &.active .bar:nth-child(1)
+    &:hover .m-bar
+      background-color: $blue_def
+    &.active .m-bar:nth-child(1)
       transform: translateY(8px) rotate(45deg)
-    &.active .bar:nth-child(2)
+    &.active .m-bar:nth-child(2)
       opacity: 0
-    &.active .bar:nth-child(3)
+    &.active .m-bar:nth-child(3)
       transform: translateY(-8px) rotate(-45deg)
-    .bar
+    .m-bar
       display: block
       width: 25px
       height: 3px
@@ -48,12 +48,11 @@
       background-color: #ffffff
 
 @include desktop
-  .navbar
-    height: 30px
+  .m-navbar__container
     display: flex
     justify-content: space-between
-    .links__container
-      .nav-menu
+    .m-links__container
+      .m-nav_menu__list
         background-color: rgba(0, 0, 0, 0)
         box-shadow: none
         width: auto
@@ -61,9 +60,9 @@
         display: flex
         flex-direction: row
         justify-content: flex-end
-        .nav-item
+        .m-nav_menu__item
           margin: auto 20px
-          .nav-link
+          .m-nav_link
             font-size: 2vw
-    .hamburger
+    .m-hamburger__container
       display: none

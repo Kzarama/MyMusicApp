@@ -9,13 +9,7 @@ import { getTop } from 'src/app/services/spotifyApi';
 })
 export class HomeComponent implements OnInit {
   topTracks: topTracks = {
-    items: [
-      {
-        name: '',
-        album: { images: [{ url: '' }] },
-        artists: [{ name: '' }],
-      },
-    ],
+    items: [],
     next: '',
     previous: '',
   };
@@ -26,6 +20,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     getTop('https://api.spotify.com/v1/me/top/tracks');
     this.topTracks = JSON.parse(localStorage.getItem('top') || '');
+    this.topTracks.items = JSON.parse(localStorage.getItem('top') || '').items;
   }
 
   async previousPage() {

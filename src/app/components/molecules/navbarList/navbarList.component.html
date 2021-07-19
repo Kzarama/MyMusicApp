@@ -1,23 +1,23 @@
-<nav class="navbar">
+<nav class="m-navbar__container">
   <app-logo></app-logo>
-  <div class="links__container">
-    <ul class="nav-menu">
-      <li class="nav-item">
+  <div class="m-links__container">
+    <ul class="m-nav_menu__list">
+      <li class="m-nav_menu__item">
         <app-user-info [user]="user"></app-user-info>
       </li>
-      <li class="nav-item">
-        <a routerLink="/favorites" class="nav-link">&#9825;Favorites</a>
+      <li class="m-nav_menu__item">
+        <a routerLink="/favorites" class="m-nav_link">&#9825;Favorites</a>
       </li>
-      <li class="nav-item">
-        <a routerLink="/login" class="nav-link"
-          >&#10153;Signout<i class="fas fa-sign-out-alt"></i
+      <li class="m-nav_menu__item">
+        <a routerLink="/login" class="m-nav_link"
+          >&#10153;SignOut<i class="fas fa-sign-out-alt"></i
         ></a>
       </li>
     </ul>
   </div>
-  <div class="hamburger" (click)="mobileMenu()">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
+  <div class="m-hamburger__container" (click)="mobileMenu()">
+    <span class="m-bar"></span>
+    <span class="m-bar"></span>
+    <span class="m-bar"></span>
   </div>
 </nav>
