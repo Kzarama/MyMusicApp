@@ -1,0 +1,18 @@
+@import ../../../../styles/variables
+@import ../../../../styles/mixins
+
+.login__button
+  color: black
+  font-size: 4vw
+  width: 65%
+  height: 50px
+  border: 0
+  border-radius: 50px
+  background-color: $blue_def
+  &:hover
+    color: white
+    background-color: darken($blue_def, 15%)
+  @include desktop
+    font-size: 2vw
+    width: 40%
+    height: 50px

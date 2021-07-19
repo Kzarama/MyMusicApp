@@ -28,7 +28,6 @@ export class FavoritesComponent implements OnInit {
   ngOnInit(): void {
     getFavorites('https://api.spotify.com/v1/me/tracks');
     this.favorites = JSON.parse(localStorage.getItem('favorites') || '');
-    console.log(this.favorites);
   }
 
   async previousPage() {

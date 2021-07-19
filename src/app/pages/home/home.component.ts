@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     getTop('https://api.spotify.com/v1/me/top/tracks');
     this.topTracks = JSON.parse(localStorage.getItem('top') || '');
-    this.topTracks.items = JSON.parse(localStorage.getItem('top') || '').items;
+    console.log(this.topTracks);
   }
 
   async previousPage() {
@@ -31,7 +31,12 @@ export class HomeComponent implements OnInit {
 
   async nextPage() {
     await getTop(this.topTracks['next']);
-    this.topTracks = JSON.parse(localStorage.getItem('top') || '');
+    const newTopTracks = JSON.parse(localStorage.getItem('top') || '');
+    const newItems = this.topTracks.items.concat(newTopTracks.items);
+    newTopTracks.items = newItems;
+    this.topTracks = newTopTracks;
+    localStorage.setItem('top', JSON.stringify(this.topTracks));
+    console.log(this.topTracks);
     this.currentPage++;
   }
 }

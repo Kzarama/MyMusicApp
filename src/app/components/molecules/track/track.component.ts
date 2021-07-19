@@ -15,7 +15,5 @@ export class TrackComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.track);
-  }
+  ngOnInit(): void {}
 }
