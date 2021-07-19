@@ -1,9 +1,7 @@
+import { track } from './track';
+
 export interface topTracks {
-  items: Array<{
-    name: string;
-    album: { images: Array<{ url: string }> };
-    artists: Array<{ name: string }>;
-  }>;
+  items: track[];
   next: string;
   previous: string;
 }

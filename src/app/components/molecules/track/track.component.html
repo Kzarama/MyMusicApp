@@ -1,0 +1,11 @@
+<div class="m-track__container">
+  <img
+    class="m-track__img"
+    src="{{ track.album.images[1].url }}"
+    alt="{{ track.name }}"
+  />
+  <app-title-track
+    [title]="track.name"
+    [artists]="track.artists"
+  ></app-title-track>
+</div>
