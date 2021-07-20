@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { user } from 'src/app/interfaces/user';
+
 import {
   getUser,
   getTokenFromURL,
   getAuthorizationToken,
 } from 'src/app/services/spotifyApi';
+
+import { user } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-loading',

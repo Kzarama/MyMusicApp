@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { user } from 'src/app/interfaces/user';
 
 @Component({
