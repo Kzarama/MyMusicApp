@@ -28,8 +28,6 @@ export class LoadingComponent implements OnInit {
     await getAuthorizationToken();
     await getUser();
     this.user = JSON.parse(localStorage.getItem('user') || '');
-    setTimeout(() => {
-      this.router.navigateByUrl('/home');
-    }, 1500);
+    this.router.navigateByUrl('/home');
   }
 }

@@ -20,6 +20,7 @@ import { HomeTemplateComponent } from './templates/home-template/home-template.c
 import { TracksComponent } from './components/organisms/tracks/tracks.component';
 import { ButtonComponent } from './components/atoms/button/button.component';
 import { FavoritesTemplateComponent } from './templates/favorites-template/favorites-template.component';
+import { LoadingSpinnerComponent } from './components/atoms/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { FavoritesTemplateComponent } from './templates/favorites-template/favor
     TracksComponent,
     ButtonComponent,
     FavoritesTemplateComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
