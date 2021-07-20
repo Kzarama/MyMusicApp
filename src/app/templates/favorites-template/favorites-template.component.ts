@@ -20,7 +20,7 @@ export class FavoritesTemplateComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  async nextPage() {
+  async moreTracks() {
     await getFavorites(this.tracks['next']);
     const newTracks = JSON.parse(localStorage.getItem('top') || '');
     this.tracks.items.concat(newTracks.items);

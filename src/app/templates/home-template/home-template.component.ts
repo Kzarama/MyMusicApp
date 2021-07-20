@@ -20,7 +20,7 @@ export class HomeTemplateComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  async nextPage() {
+  async moreTracks() {
     await getTop(this.tracks['next']);
     const newTracks = JSON.parse(localStorage.getItem('top') || '');
     this.tracks.items.concat(newTracks.items);
