@@ -15,7 +15,6 @@ export class HomeTemplateComponent implements OnInit {
     next: '',
     previous: '',
   };
-  currentPage: number = 1;
 
   constructor() {}
 
@@ -23,11 +22,8 @@ export class HomeTemplateComponent implements OnInit {
 
   async nextPage() {
     await getTop(this.tracks['next']);
-    const newTopTracks = JSON.parse(localStorage.getItem('top') || '');
-    const newItems = this.tracks.items.concat(newTopTracks.items);
-    newTopTracks.items = newItems;
-    this.tracks = newTopTracks;
-    localStorage.setItem('top', JSON.stringify(this.tracks));
-    this.currentPage++;
+    const newTracks = JSON.parse(localStorage.getItem('top') || '');
+    this.tracks.items.concat(newTracks.items);
+    this.tracks = newTracks;
   }
 }

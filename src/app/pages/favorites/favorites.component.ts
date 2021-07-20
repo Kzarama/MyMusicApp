@@ -14,12 +14,11 @@ export class FavoritesComponent implements OnInit {
     next: '',
     previous: '',
   };
-  currentPage: number = 1;
 
   constructor() {}
 
-  ngOnInit(): void {
-    getFavorites('https://api.spotify.com/v1/me/tracks');
+  async ngOnInit() {
+    await getFavorites('https://api.spotify.com/v1/me/tracks');
     const favoritesTracks = JSON.parse(localStorage.getItem('favorites') || '');
     var itemsTracks: any[] = [];
     for (let i = 0; i < favoritesTracks.items.length; i++) {

@@ -15,7 +15,6 @@ export class FavoritesTemplateComponent implements OnInit {
     next: '',
     previous: '',
   };
-  currentPage: number = 1;
 
   constructor() {}
 
@@ -23,7 +22,8 @@ export class FavoritesTemplateComponent implements OnInit {
 
   async nextPage() {
     await getFavorites(this.tracks['next']);
-    this.tracks = JSON.parse(localStorage.getItem('top') || '');
-    this.currentPage++;
+    const newTracks = JSON.parse(localStorage.getItem('top') || '');
+    this.tracks.items.concat(newTracks.items);
+    this.tracks = newTracks;
   }
 }

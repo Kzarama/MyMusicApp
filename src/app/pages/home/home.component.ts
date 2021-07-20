@@ -17,8 +17,8 @@ export class HomeComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
-    getTop('https://api.spotify.com/v1/me/top/tracks');
+  async ngOnInit() {
+    await getTop('https://api.spotify.com/v1/me/top/tracks');
     this.topTracks = JSON.parse(localStorage.getItem('top') || '');
   }
 }

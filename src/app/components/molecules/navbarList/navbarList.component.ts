@@ -37,4 +37,9 @@ export class NavbarListComponent implements OnInit {
       navMenu.classList.toggle('active');
     }
   }
+
+  logout(): void {
+    localStorage.clear();
+    this.router.navigate(['./login']);
+  }
 }

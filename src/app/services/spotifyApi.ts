@@ -1,5 +1,5 @@
 import { environment } from 'src/environments/environment';
-import { generateRandomString } from '../shared/login_spotify/utils';
+import { generateRandomString } from '../shared/utils';
 
 export const login = async () => {
   const redirect_url = environment.SpotifyRedirectUrl;
