@@ -1,8 +1,6 @@
 <div class="a-track__container">
-  <span class="a-title__span">{{ title }}</span>
+  <span>{{ title }}</span>
   <div>
-    <span *ngFor="let artist of artists" class="a-artists__span"
-      >{{ artist.name }}-</span
-    >
+    <span *ngFor="let artist of artists"> {{ artist.name }}- </span>
   </div>
 </div>
