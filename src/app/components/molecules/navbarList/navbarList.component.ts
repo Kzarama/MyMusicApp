@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { user } from 'src/app/interfaces/user';
 
 @Component({
@@ -13,9 +14,19 @@ export class NavbarListComponent implements OnInit {
     images: [],
   };
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  navigate(route: string): void {
+    this.router.navigate([route]);
+    const hamburger = document.querySelector('.m-hamburger__container');
+    const navMenu = document.querySelector('.m-nav_menu__list');
+    if (hamburger && navMenu) {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    }
+  }
 
   mobileMenu(): void {
     const hamburger = document.querySelector('.m-hamburger__container');

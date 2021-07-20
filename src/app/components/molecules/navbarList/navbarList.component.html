@@ -1,12 +1,14 @@
 <nav class="m-navbar__container">
-  <app-logo></app-logo>
+  <app-logo routerLink="/home"></app-logo>
   <div class="m-links__container">
     <ul class="m-nav_menu__list">
       <li class="m-nav_menu__item">
-        <app-user-info [user]="user"></app-user-info>
+        <app-user-info (click)="navigate('home')" [user]="user"></app-user-info>
       </li>
       <li class="m-nav_menu__item">
-        <a routerLink="/favorites" class="m-nav_link">&#9825;Favorites</a>
+        <a (click)="navigate('favorites')" class="m-nav_link"
+          >&#9825;Favorites</a
+        >
       </li>
       <li class="m-nav_menu__item">
         <a routerLink="/login" class="m-nav_link"
