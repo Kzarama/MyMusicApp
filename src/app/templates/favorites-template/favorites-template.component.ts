@@ -15,6 +15,7 @@ export class FavoritesTemplateComponent implements OnInit {
     next: '',
     previous: '',
   };
+  @Input() loading: boolean = false;
 
   constructor() {}
 

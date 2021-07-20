@@ -14,11 +14,13 @@ export class HomeComponent implements OnInit {
     next: '',
     previous: '',
   };
+  loading: boolean = false;
 
   constructor() {}
 
   async ngOnInit() {
     await getTop('https://api.spotify.com/v1/me/top/tracks');
     this.topTracks = JSON.parse(localStorage.getItem('top') || '');
+    this.loading = true;
   }
 }

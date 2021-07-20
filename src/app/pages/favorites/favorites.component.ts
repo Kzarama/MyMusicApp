@@ -14,6 +14,7 @@ export class FavoritesComponent implements OnInit {
     next: '',
     previous: '',
   };
+  loading: boolean = false;
 
   constructor() {}
 
@@ -27,5 +28,6 @@ export class FavoritesComponent implements OnInit {
     this.tracks.items = itemsTracks;
     this.tracks.next = favoritesTracks.next;
     this.tracks.previous = favoritesTracks.previous;
+    this.loading = true;
   }
 }
