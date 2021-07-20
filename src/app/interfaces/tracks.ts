@@ -1,6 +1,6 @@
 import { track } from './track';
 
-export interface topTracks {
+export interface tracks {
   items: track[];
   next: string;
   previous: string;

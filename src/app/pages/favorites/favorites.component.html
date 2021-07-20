@@ -1,12 +1,1 @@
-<div *ngFor="let item of favorites.items">
-  <h1>{{ item.track.name }}</h1>
-  <h2 *ngFor="let artist of item.track.artists">{{ artist.name }}</h2>
-  <!-- <img src="{{ item.track.album.images[0].url }}" alt="" /> -->
-  <img src="{{ item.track.album.images[0].url }}" alt="" />
-</div>
-
-<button (click)="previousPage()" [disabled]="!favorites.previous">
-  Previous
-</button>
-{{ currentPage }}
-<button (click)="nextPage()" [disabled]="!favorites.next">Next</button>
+<app-tracks [tracks]="tracks.items"></app-tracks>

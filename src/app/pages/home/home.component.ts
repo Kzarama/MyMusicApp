@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { topTracks } from 'src/app/interfaces/topTrack';
+import { tracks } from 'src/app/interfaces/tracks';
 import { getTop } from 'src/app/services/spotifyApi';
 
 @Component({
@@ -8,7 +8,7 @@ import { getTop } from 'src/app/services/spotifyApi';
   styleUrls: ['./home.component.sass'],
 })
 export class HomeComponent implements OnInit {
-  topTracks: topTracks = {
+  topTracks: tracks = {
     items: [],
     next: '',
     previous: '',
@@ -20,13 +20,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     getTop('https://api.spotify.com/v1/me/top/tracks');
     this.topTracks = JSON.parse(localStorage.getItem('top') || '');
-    console.log(this.topTracks);
-  }
-
-  async previousPage() {
-    await getTop(this.topTracks['previous']);
-    this.topTracks = JSON.parse(localStorage.getItem('top') || '');
-    this.currentPage--;
   }
 
   async nextPage() {
@@ -36,7 +29,6 @@ export class HomeComponent implements OnInit {
     newTopTracks.items = newItems;
     this.topTracks = newTopTracks;
     localStorage.setItem('top', JSON.stringify(this.topTracks));
-    console.log(this.topTracks);
     this.currentPage++;
   }
 }

@@ -110,17 +110,14 @@ export const getUser = async () => {
   await fetch('https://api.spotify.com/v1/me', requestOptions)
     .then((response) => response.json())
     .then((result) => {
-      localStorage.setItem('user', JSON.stringify(result));
-    })
-    .catch((error) => {
-      if (
-        error.status === 401 &&
-        error.message === 'The access token expired'
-      ) {
+      if (result['error'] && result['error']['status'] === 401) {
         refresh_token(getUser());
       } else {
-        console.log('error', error);
+        localStorage.setItem('user', JSON.stringify(result));
       }
+    })
+    .catch((error) => {
+      console.log('error', error);
     });
 };
 
@@ -139,19 +136,16 @@ export const getFavorites = async (url: string) => {
   };
 
   await fetch(url, requestOptions)
-    .then((response) => response.text())
+    .then((response) => response.json())
     .then((result) => {
-      localStorage.setItem('favorites', result);
-    })
-    .catch((error) => {
-      if (
-        error.status === 401 &&
-        error.message === 'The access token expired'
-      ) {
+      if (result['error'] && result['error']['status'] === 401) {
         refresh_token(getFavorites(url));
       } else {
-        console.log('error', error);
+        localStorage.setItem('favorites', JSON.stringify(result));
       }
+    })
+    .catch((error) => {
+      console.log('error', error);
     });
 };
 
@@ -170,18 +164,15 @@ export const getTop = async (url: string) => {
   };
 
   await fetch(url, requestOptions)
-    .then((response) => response.text())
+    .then((response) => response.json())
     .then((result) => {
-      localStorage.setItem('top', result);
-    })
-    .catch((error) => {
-      if (
-        error.status === 401 &&
-        error.message === 'The access token expired'
-      ) {
+      if (result['error'] && result['error']['status'] === 401) {
         refresh_token(getTop(url));
       } else {
-        console.log('error', error);
+        localStorage.setItem('top', JSON.stringify(result));
       }
+    })
+    .catch((error) => {
+      console.log('error', error);
     });
 };
