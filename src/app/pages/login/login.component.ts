@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { login } from 'src/app/services/spotifyApi';
 
@@ -9,13 +8,9 @@ import { login } from 'src/app/services/spotifyApi';
   styleUrls: ['./login.component.sass'],
 })
 export class LoginComponent {
-  constructor(private router: Router) {}
+  constructor() {}
 
   login(): void {
     login();
-  }
-
-  register(): void {
-    window.location.href = 'https://www.spotify.com/bo/signup/';
   }
 }
