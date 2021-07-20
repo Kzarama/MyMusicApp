@@ -6,6 +6,7 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { LoadingComponent } from './pages/loading/loading.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { AccessGuardGuard } from './shared/guards/access-guard.guard';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
+    canActivate: [AccessGuardGuard],
     children: [
       {
         path: '',
