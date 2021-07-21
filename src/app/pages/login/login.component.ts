@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { login } from 'src/app/services/spotifyApi';
+import { ApiSpotifyService } from '../../services/api-spotify.service';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +8,9 @@ import { login } from 'src/app/services/spotifyApi';
   styleUrls: ['./login.component.sass'],
 })
 export class LoginComponent {
-  constructor() {}
+  constructor(private apiSpotify: ApiSpotifyService) {}
 
   login(): void {
-    login();
+    this.apiSpotify.login();
   }
 }

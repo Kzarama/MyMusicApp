@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { getTop } from 'src/app/services/spotifyApi';
+import { ApiSpotifyService } from '../../services/api-spotify.service';
+
 import { tracks } from 'src/app/interfaces/tracks';
 
 @Component({
@@ -16,10 +17,10 @@ export class HomeComponent implements OnInit {
   };
   loading: boolean = false;
 
-  constructor() {}
+  constructor(private apiSpotify: ApiSpotifyService) {}
 
   async ngOnInit() {
-    await getTop('https://api.spotify.com/v1/me/top/tracks');
+    await this.apiSpotify.getTop('https://api.spotify.com/v1/me/top/tracks');
     this.topTracks = JSON.parse(localStorage.getItem('top') || '');
     this.loading = true;
   }

@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import {
-  getUser,
-  getTokenFromURL,
-  getAuthorizationToken,
-} from 'src/app/services/spotifyApi';
+import { ApiSpotifyService } from '../../services/api-spotify.service';
 
 import { user } from 'src/app/interfaces/user';
 
@@ -21,12 +17,12 @@ export class LoadingComponent implements OnInit {
     images: [{ url: '' }],
   };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private apiSpotify: ApiSpotifyService) {}
 
   async ngOnInit() {
-    await getTokenFromURL();
-    await getAuthorizationToken();
-    await getUser();
+    await this.apiSpotify.getTokenFromURL();
+    await this.apiSpotify.getAuthorizationToken();
+    await this.apiSpotify.getUser();
     this.user = JSON.parse(localStorage.getItem('user') || '');
     this.router.navigateByUrl('/home');
   }

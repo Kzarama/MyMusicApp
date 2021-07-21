@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { getFavorites } from 'src/app/services/spotifyApi';
+import { ApiSpotifyService } from '../../services/api-spotify.service';
+
 import { tracks } from 'src/app/interfaces/tracks';
 
 @Component({
@@ -16,10 +17,10 @@ export class FavoritesComponent implements OnInit {
   };
   loading: boolean = false;
 
-  constructor() {}
+  constructor(private apiSpotify: ApiSpotifyService) {}
 
   async ngOnInit() {
-    await getFavorites('https://api.spotify.com/v1/me/tracks');
+    await this.apiSpotify.getFavorites('https://api.spotify.com/v1/me/tracks');
     const favoritesTracks = JSON.parse(localStorage.getItem('favorites') || '');
     var itemsTracks: any[] = [];
     for (let i = 0; i < favoritesTracks.items.length; i++) {
