@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { user } from 'src/app/interfaces/user';
 
@@ -7,7 +7,7 @@ import { user } from 'src/app/interfaces/user';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.sass'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   @Input() user: user = {
     display_name: '',
     id: '',
@@ -15,6 +15,4 @@ export class NavbarComponent implements OnInit {
   };
 
   constructor() {}
-
-  ngOnInit(): void {}
 }

@@ -1,14 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { user } from 'src/app/interfaces/user';
 
 @Component({
-  selector: 'app-navbarList',
-  templateUrl: './navbarList.component.html',
-  styleUrls: ['./navbarList.component.sass'],
+  selector: 'app-navbar-list',
+  templateUrl: './navbar-list.component.html',
+  styleUrls: ['./navbar-list.component.sass'],
 })
-export class NavbarListComponent implements OnInit {
+export class NavbarListComponent {
   @Input() user: user = {
     display_name: '',
     id: '',
@@ -16,8 +16,6 @@ export class NavbarListComponent implements OnInit {
   };
 
   constructor(private router: Router) {}
-
-  ngOnInit(): void {}
 
   navigate(route: string): void {
     this.router.navigate([route]);

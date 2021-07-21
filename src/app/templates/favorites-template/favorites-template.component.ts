@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { ApiSpotifyService } from '../../services/api-spotify.service';
 
@@ -9,7 +9,7 @@ import { tracks } from 'src/app/interfaces/tracks';
   templateUrl: './favorites-template.component.html',
   styleUrls: ['./favorites-template.component.sass'],
 })
-export class FavoritesTemplateComponent implements OnInit {
+export class FavoritesTemplateComponent {
   @Input() tracks: tracks = {
     items: [],
     next: '',
@@ -18,8 +18,6 @@ export class FavoritesTemplateComponent implements OnInit {
   @Input() loading: boolean = false;
 
   constructor(private apiSpotify: ApiSpotifyService) {}
-
-  ngOnInit(): void {}
 
   async moreTracks() {
     await this.apiSpotify.getFavorites(this.tracks['next']);

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { track } from 'src/app/interfaces/track';
 
@@ -7,7 +7,7 @@ import { track } from 'src/app/interfaces/track';
   templateUrl: './track.component.html',
   styleUrls: ['./track.component.sass'],
 })
-export class TrackComponent implements OnInit {
+export class TrackComponent {
   @Input() track: track = {
     name: '',
     album: { images: [{ url: '' }] },
@@ -15,6 +15,4 @@ export class TrackComponent implements OnInit {
   };
 
   constructor() {}
-
-  ngOnInit(): void {}
 }

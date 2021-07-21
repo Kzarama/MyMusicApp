@@ -8,7 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { LogoComponent } from './components/atoms/logo/logo.component';
-import { NavbarListComponent } from './components/molecules/navbarList/navbarList.component';
+import { NavbarListComponent } from './components/molecules/navbar-list/navbar-list.component';
 import { NavbarComponent } from './components/organisms/navbar/navbar.component';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { LoadingComponent } from './pages/loading/loading.component';
