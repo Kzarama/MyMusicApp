@@ -6,9 +6,11 @@ import { generateRandomString } from '../shared/utils';
 @Injectable({
   providedIn: 'root',
 })
+// Service that use the API of Spotify
 export class ApiSpotifyService {
   constructor() {}
 
+  // Login in Spotify and redirect at the page selected
   login = async () => {
     const redirect_url = environment.SpotifyRedirectUrl;
     const client_id = environment.SpotifyClientId;
@@ -34,6 +36,7 @@ export class ApiSpotifyService {
       `&show_dialog=false`;
   };
 
+  // Get the token from the url
   getTokenFromURL = async () => {
     const urlQuery = window.location.search;
     const urlParams = new URLSearchParams(urlQuery);
@@ -41,6 +44,7 @@ export class ApiSpotifyService {
     localStorage.setItem('code', codeParam || '');
   };
 
+  // Get the authorization code from Spotify
   getAuthorizationToken = async () => {
     var myHeaders = new Headers();
     myHeaders.append(
@@ -72,6 +76,8 @@ export class ApiSpotifyService {
       .catch((error) => console.log('error', error));
   };
 
+  // Refresh the token when expires
+  // @param parent_function: any function that crash for 401 error
   refresh_token = async (parent_function: any) => {
     var myHeaders = new Headers();
     myHeaders.append(
@@ -105,6 +111,7 @@ export class ApiSpotifyService {
       .catch((error) => console.log('error', error));
   };
 
+  // Get the user info from Spotify
   getUser = async () => {
     var myHeaders = new Headers();
     myHeaders.append('Accept', 'application/json');
@@ -133,6 +140,7 @@ export class ApiSpotifyService {
       });
   };
 
+  // Get the favorites tracks of the user from Spotify
   getFavorites = async (url: string) => {
     var myHeaders = new Headers();
     myHeaders.append('Accept', 'application/json');
@@ -161,6 +169,7 @@ export class ApiSpotifyService {
       });
   };
 
+  // Get the recommended tracks from Spotify
   getTop = async (url: string) => {
     var myHeaders = new Headers();
     myHeaders.append('Accept', 'application/json');
