@@ -8,9 +8,8 @@ describe('ButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ButtonComponent ]
-    })
-    .compileComponents();
+      declarations: [ButtonComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,10 @@ describe('ButtonComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('attributes should be empty', () => {
+    expect(component.text).toEqual('');
+    expect(component.active).toEqual('');
   });
 });

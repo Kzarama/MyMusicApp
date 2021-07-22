@@ -8,9 +8,8 @@ describe('UserInfoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserInfoComponent ]
-    })
-    .compileComponents();
+      declarations: [UserInfoComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,13 @@ describe('UserInfoComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('attributes should be empty', () => {
+    expect(component.user).toEqual({
+      display_name: '',
+      id: '',
+      images: [{ url: '' }],
+    });
   });
 });

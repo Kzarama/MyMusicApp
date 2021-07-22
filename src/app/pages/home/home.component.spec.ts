@@ -8,9 +8,8 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
-    })
-    .compileComponents();
+      declarations: [HomeComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,14 @@ describe('HomeComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('attributes should be empty', () => {
+    expect(component.loading).toEqual(false);
+    expect(component.topTracks).toEqual({
+      items: [],
+      next: '',
+      previous: '',
+    });
   });
 });

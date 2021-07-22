@@ -8,9 +8,8 @@ describe('TracksComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TracksComponent ]
-    })
-    .compileComponents();
+      declarations: [TracksComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,9 @@ describe('TracksComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('attributes should be empty', () => {
+    expect(component.tracks).toEqual([]);
   });
 });

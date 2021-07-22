@@ -21,4 +21,12 @@ describe('NavbarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('attributes should be empty', () => {
+    expect(component.user).toEqual({
+      display_name: '',
+      id: '',
+      images: [],
+    });
+  });
 });

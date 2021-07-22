@@ -8,9 +8,8 @@ describe('FavoritesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FavoritesComponent ]
-    })
-    .compileComponents();
+      declarations: [FavoritesComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,14 @@ describe('FavoritesComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('attributes should be empty', () => {
+    expect(component.loading).toEqual(false);
+    expect(component.tracks).toEqual({
+      items: [],
+      next: '',
+      previous: '',
+    });
   });
 });

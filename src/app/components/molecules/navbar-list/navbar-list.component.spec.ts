@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { NavbarListComponent } from './navbar-list.component';
 
@@ -8,6 +9,7 @@ describe('NavbarListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
       declarations: [NavbarListComponent],
     }).compileComponents();
   });
@@ -20,5 +22,13 @@ describe('NavbarListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('attributes should be empty', () => {
+    expect(component.user).toEqual({
+      display_name: '',
+      id: '',
+      images: [{ url: '' }],
+    });
   });
 });

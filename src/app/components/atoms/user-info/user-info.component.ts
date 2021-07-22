@@ -11,7 +11,7 @@ export class UserInfoComponent {
   @Input() user: user = {
     display_name: '',
     id: '',
-    images: [],
+    images: [{ url: '' }],
   };
 
   constructor() {}

@@ -12,13 +12,13 @@ export class NavbarListComponent {
   @Input() user: user = {
     display_name: '',
     id: '',
-    images: [],
+    images: [{ url: '' }],
   };
 
   constructor(private router: Router) {}
 
   navigate(route: string): void {
-    this.router.navigate([route]);
+    this.router.navigateByUrl(route);
     const hamburger = document.querySelector('.m-hamburger__container');
     const navMenu = document.querySelector('.m-nav_menu__list');
     if (hamburger && navMenu) {
@@ -38,6 +38,6 @@ export class NavbarListComponent {
 
   logout(): void {
     localStorage.clear();
-    this.router.navigate(['./login']);
+    this.router.navigateByUrl('/login');
   }
 }

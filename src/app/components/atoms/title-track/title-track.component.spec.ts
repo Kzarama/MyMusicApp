@@ -8,9 +8,8 @@ describe('TitleTrackComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TitleTrackComponent ]
-    })
-    .compileComponents();
+      declarations: [TitleTrackComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,10 @@ describe('TitleTrackComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('attributes should be empty', () => {
+    expect(component.artists).toEqual([]);
+    expect(component.title).toEqual('');
   });
 });
