@@ -20,8 +20,9 @@
     flex-direction: column
     position: fixed
     left: -100%
-    top: 12%
+    top: 100px
     transition: 0.3s
+    backdrop-filter: blur(20px)
     &.active
       left: 10%
     .m-nav_menu__item
@@ -60,6 +61,7 @@
     .m-links__container
       .m-nav_menu__list
         background-color: rgba(0, 0, 0, 0)
+        backdrop-filter: blur(0px)
         box-shadow: none
         width: auto
         position: static
