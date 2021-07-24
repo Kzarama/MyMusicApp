@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { user } from 'src/app/interfaces/user';
+import { IUser } from 'src/app/interfaces/IUser';
 
 @Component({
   selector: 'app-user-info',
@@ -8,7 +8,7 @@ import { user } from 'src/app/interfaces/user';
   styleUrls: ['./user-info.component.sass'],
 })
 export class UserInfoComponent {
-  @Input() user: user = {
+  @Input() user: IUser = {
     display_name: '',
     id: '',
     images: [{ url: '' }],

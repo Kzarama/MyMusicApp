@@ -1,3 +1,11 @@
 <div class="m-tracks__container">
-  <app-track *ngFor="let track of tracks" [track]="track"></app-track>
+  <app-track *ngFor="let track of tracks.items" [track]="track"></app-track>
+</div>
+
+<div class="more_tracks__button">
+  <app-button
+    (click)="moreTracks()"
+    [active]="tracks.next"
+    [text]="'More tracks'"
+  ></app-button>
 </div>

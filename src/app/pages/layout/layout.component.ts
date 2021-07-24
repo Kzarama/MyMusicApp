@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { user } from 'src/app/interfaces/user';
+import { IUser } from 'src/app/interfaces/IUser';
 
 @Component({
   selector: 'app-layout',
@@ -7,7 +7,7 @@ import { user } from 'src/app/interfaces/user';
   styleUrls: ['./layout.component.sass'],
 })
 export class LayoutComponent implements OnInit {
-  user: user = {
+  user: IUser = {
     display_name: '',
     id: '',
     images: [],

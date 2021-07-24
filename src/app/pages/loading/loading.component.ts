@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { ApiSpotifyService } from '../../services/api-spotify.service';
 
-import { user } from 'src/app/interfaces/user';
+import { IUser } from 'src/app/interfaces/IUser';
 
 @Component({
   selector: 'app-loading',
@@ -11,7 +11,7 @@ import { user } from 'src/app/interfaces/user';
   styleUrls: ['./loading.component.sass'],
 })
 export class LoadingComponent implements OnInit {
-  user: user = {
+  user: IUser = {
     display_name: '',
     id: '',
     images: [{ url: '' }],

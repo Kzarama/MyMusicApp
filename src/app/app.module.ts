@@ -17,10 +17,9 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { UserInfoComponent } from './components/atoms/user-info/user-info.component';
 import { TitleTrackComponent } from './components/atoms/title-track/title-track.component';
 import { TrackComponent } from './components/molecules/track/track.component';
-import { HomeTemplateComponent } from './templates/home-template/home-template.component';
+import { PageTemplateComponent } from './templates/page-template/page-template.component';
 import { TracksComponent } from './components/organisms/tracks/tracks.component';
 import { ButtonComponent } from './components/atoms/button/button.component';
-import { FavoritesTemplateComponent } from './templates/favorites-template/favorites-template.component';
 import { LoadingSpinnerComponent } from './components/atoms/loading-spinner/loading-spinner.component';
 
 @NgModule({
@@ -38,10 +37,9 @@ import { LoadingSpinnerComponent } from './components/atoms/loading-spinner/load
     UserInfoComponent,
     TitleTrackComponent,
     TrackComponent,
-    HomeTemplateComponent,
+    PageTemplateComponent,
     TracksComponent,
     ButtonComponent,
-    FavoritesTemplateComponent,
     LoadingSpinnerComponent,
   ],
   imports: [

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ApiSpotifyService } from '../../services/api-spotify.service';
 
-import { tracks } from 'src/app/interfaces/tracks';
+import { ITracks } from 'src/app/interfaces/ITracks';
 
 @Component({
   selector: 'app-favorites',
@@ -10,7 +10,7 @@ import { tracks } from 'src/app/interfaces/tracks';
   styleUrls: ['./favorites.component.sass'],
 })
 export class FavoritesComponent implements OnInit {
-  tracks: tracks = {
+  tracks: ITracks = {
     items: [],
     next: '',
     previous: '',

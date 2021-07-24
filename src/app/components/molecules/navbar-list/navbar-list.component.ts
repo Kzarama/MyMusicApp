@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { user } from 'src/app/interfaces/user';
+import { IUser } from 'src/app/interfaces/IUser';
 
 @Component({
   selector: 'app-navbar-list',
@@ -9,7 +9,7 @@ import { user } from 'src/app/interfaces/user';
   styleUrls: ['./navbar-list.component.sass'],
 })
 export class NavbarListComponent {
-  @Input() user: user = {
+  @Input() user: IUser = {
     display_name: '',
     id: '',
     images: [{ url: '' }],

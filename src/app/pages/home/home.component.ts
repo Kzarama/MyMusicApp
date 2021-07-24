@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ApiSpotifyService } from '../../services/api-spotify.service';
 
-import { tracks } from 'src/app/interfaces/tracks';
+import { ITracks } from 'src/app/interfaces/ITracks';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +10,7 @@ import { tracks } from 'src/app/interfaces/tracks';
   styleUrls: ['./home.component.sass'],
 })
 export class HomeComponent implements OnInit {
-  topTracks: tracks = {
+  tracks: ITracks = {
     items: [],
     next: '',
     previous: '',
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
 
   async ngOnInit() {
     await this.apiSpotify.getTop('https://api.spotify.com/v1/me/top/tracks');
-    this.topTracks = JSON.parse(localStorage.getItem('top') || '');
+    this.tracks = JSON.parse(localStorage.getItem('top') || '');
     this.loading = true;
   }
 }

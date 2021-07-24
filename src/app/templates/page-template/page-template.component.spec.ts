@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FavoritesTemplateComponent } from './favorites-template.component';
+import { PageTemplateComponent } from './page-template.component';
 
-describe('FavoritesTemplateComponent', () => {
-  let component: FavoritesTemplateComponent;
-  let fixture: ComponentFixture<FavoritesTemplateComponent>;
+describe('PageTemplateComponent', () => {
+  let component: PageTemplateComponent;
+  let fixture: ComponentFixture<PageTemplateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FavoritesTemplateComponent],
+      declarations: [PageTemplateComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FavoritesTemplateComponent);
+    fixture = TestBed.createComponent(PageTemplateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

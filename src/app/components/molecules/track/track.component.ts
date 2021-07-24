@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { track } from 'src/app/interfaces/track';
+import { ITrack } from 'src/app/interfaces/ITrack';
 import { fade } from 'src/app/shared/animations/animations';
 
 @Component({
@@ -10,7 +10,7 @@ import { fade } from 'src/app/shared/animations/animations';
   animations: [fade],
 })
 export class TrackComponent {
-  @Input() track: track = {
+  @Input() track: ITrack = {
     name: '',
     album: { images: [{ url: '' }] },
     artists: [],
