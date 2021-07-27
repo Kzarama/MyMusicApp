@@ -7,7 +7,4 @@ export const environment = {
   SpotifyClientId: 'ddc11f4efc614417a7c9a21a18108ddd',
   SpotifyClientSecret: '006ed44f714b4678b1ddad99ab1379e5',
   SpotifyRedirectUrl: 'http://localhost:4200/loading/',
-  // SpotifyClientId: process.env.SPOTIFY_CLIENT_ID,
-  // SpotifyClientSecret: process.env.SPOTIFY_CLIENT_SECRET,
-  // SpotifyRedirectUrl: process.env.SPOTIFY_REDIRECT_URL,
 };
