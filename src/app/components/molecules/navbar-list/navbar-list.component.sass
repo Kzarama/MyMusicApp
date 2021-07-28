@@ -6,9 +6,10 @@
   display: flex
   align-items: center
   justify-content: space-between
+  backdrop-filter: blur(20px)
   .m-logo__container
-    cursor: pointer
     width: 45%
+    cursor: url(/assets/hand.png), auto
     @include desktop
       width: 23%
   .m-nav_menu__list
@@ -22,11 +23,9 @@
     left: -100%
     top: 100px
     transition: 0.3s
-    backdrop-filter: blur(20px)
     &.active
       left: 10%
     .m-nav_menu__item
-      cursor: pointer
       margin: 10%
       list-style: none
       .m-nav_link
@@ -35,9 +34,10 @@
         text-decoration: none
         &:hover
           color: $blue_def
+          cursor: url(/assets/hand.png), auto
   .m-hamburger__container
     display: block
-    cursor: pointer
+    cursor: url(/assets/hand.png), auto
     &:hover .m-bar
       background-color: $blue_def
     &.active .m-bar:nth-child(1)
@@ -61,7 +61,6 @@
     .m-links__container
       .m-nav_menu__list
         background-color: rgba(0, 0, 0, 0)
-        backdrop-filter: blur(0px)
         box-shadow: none
         width: auto
         position: static
